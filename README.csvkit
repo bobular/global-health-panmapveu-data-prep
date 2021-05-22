@@ -1,0 +1,85 @@
+## getting csvkit installed
+
+not sure how many of these are actually needed
+
+
+sudo yum install python3-pip python3-devel gcc libicu-devel gcc-c++ 
+
+pip3 install --user csvkit
+
+
+## what columns do we have?
+# csvcut -n globaldothealth_2021-03-22.csv
+
+  1: _id
+  2: caseReference.additionalSources
+  3: caseReference.sourceEntryId
+  4: caseReference.sourceId
+  5: caseReference.sourceUrl
+  6: caseReference.uploadIds
+  7: caseReference.verificationStatus
+  8: demographics.ageRange.end
+  9: demographics.ageRange.start
+ 10: demographics.ethnicity
+ 11: demographics.gender
+ 12: demographics.nationalities
+ 13: demographics.occupation
+ 14: events.confirmed.date
+ 15: events.confirmed.value
+ 16: events.firstClinicalConsultation.date
+ 17: events.firstClinicalConsultation.value
+ 18: events.hospitalAdmission.date
+ 19: events.hospitalAdmission.value
+ 20: events.icuAdmission.date
+ 21: events.icuAdmission.value
+ 22: events.onsetSymptoms.date
+ 23: events.onsetSymptoms.value
+ 24: events.outcome.date
+ 25: events.outcome.value
+ 26: events.selfIsolation.date
+ 27: events.selfIsolation.value
+ 28: genomeSequences
+ 29: genomeSequences.repositoryUrl
+ 30: genomeSequences.sampleCollectionDate
+ 31: genomeSequences.sequenceId
+ 32: genomeSequences.sequenceLength
+ 33: genomeSequences.sequenceName
+ 34: location.administrativeAreaLevel1
+ 35: location.administrativeAreaLevel2
+ 36: location.administrativeAreaLevel3
+ 37: location.country
+ 38: location.geoResolution
+ 39: location.geometry.latitude
+ 40: location.geometry.longitude
+ 41: location.name
+ 42: location.place
+ 43: notes
+ 44: pathogens
+ 45: preexistingConditions.hasPreexistingConditions
+ 46: preexistingConditions.values
+ 47: revisionMetadata.creationMetadata.date
+ 48: revisionMetadata.creationMetadata.notes
+ 49: revisionMetadata.editMetadata.date
+ 50: revisionMetadata.editMetadata.notes
+ 51: revisionMetadata.revisionNumber
+ 52: symptoms.status
+ 53: symptoms.values
+ 54: transmission.linkedCaseIds
+ 55: transmission.places
+ 56: transmission.routes
+ 57: travelHistory.travel.dateRange.end
+ 58: travelHistory.travel.dateRange.start
+ 59: travelHistory.travel.location.administrativeAreaLevel1
+ 60: travelHistory.travel.location.administrativeAreaLevel2
+ 61: travelHistory.travel.location.administrativeAreaLevel3
+ 62: travelHistory.travel.location.country
+ 63: travelHistory.travel.location.geoResolution
+ 64: travelHistory.travel.location.geometry.coordinates
+ 65: travelHistory.travel.location.name
+ 66: travelHistory.travel.location.place
+ 67: travelHistory.travel.methods
+ 68: travelHistory.travel.purpose
+ 69: travelHistory.traveledPrior30Days
+ 70: variantOfConcern
+
+

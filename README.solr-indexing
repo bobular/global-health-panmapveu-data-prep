@@ -1,0 +1,30 @@
+#
+# make sure all JSON is unzipped
+#
+
+prefix=gh_20210322
+
+#
+# clear both cores
+#
+
+echo clearing main core
+curl --insecure -H Host:solr-panmapveu.bio.ic.ac.uk 'https://localhost:8983/solr/covid_main/update?stream.body=<delete><query>*:*</query></delete>&commit=true'
+echo clearing ac core
+curl --insecure -H Host:solr-panmapveu.bio.ic.ac.uk -H "Content-Type: text/xml" 'https://localhost:8983/solr/covid_ac/update?commit=true' --data-binary '<delete><query>*:*</query></delete>'
+
+
+for file in $prefix-main-* 
+do
+  echo indexing $file
+  curl --insecure -X POST -H "Content-Type: application/json" -H Host:solr-panmapveu.bio.ic.ac.uk "https://localhost:8983/solr/covid_main/update?commit=true" --data-binary @$file
+done
+
+for file in $prefix-ac-* 
+do
+  echo indexing $file
+  curl --insecure -X POST -H "Content-Type: application/json" -H Host:solr-panmapveu.bio.ic.ac.uk "https://localhost:8983/solr/covid_ac/update?commit=true" --data-binary @$file
+done
+
+
+
