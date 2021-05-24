@@ -60,6 +60,7 @@ my $ac_config =
     case_confirmation_s =>          { type => "Case confirmation" },
     occupation_s =>                 { type => "Occupation" },
     outcome_s =>                    { type => "Outcome" },
+    country_s =>                    { type => "Country" },
    }
   };
 
@@ -180,6 +181,7 @@ while (my $row = $csv->getline ($fh)) {
   my $outcome = $row->[$h2i->{'events.outcome.value'}];
   my $case_confirmation_type = $row->[$h2i->{'events.confirmed.value'}];
   my $date = $row->[$h2i->{'events.confirmed.date'}] || undef;
+  my $country = $row->[$h2i->{'location.country'}] || undef;
 
   my $occupation = $row->[$h2i->{'demographics.occupation'}];
 
@@ -199,6 +201,7 @@ while (my $row = $csv->getline ($fh)) {
                      case_confirmation_s => $case_confirmation_type || 'no data',
 		     occupation_s => $occupation || 'no data',
 		     outcome_s => $outcome || 'no data',
+		     country_s => $country || 'no data',
 
                      has_geodata => (defined $latlong ? 'true' : 'false'),
                      (defined $latlong ? geo_coords_fields($latlong) : ()),
