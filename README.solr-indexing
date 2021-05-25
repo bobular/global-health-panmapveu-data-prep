@@ -2,7 +2,7 @@
 # make sure all JSON is unzipped
 #
 
-prefix=gh_20210322
+prefix=solr/gh_2021-03-22
 
 #
 # clear both cores
